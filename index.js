@@ -2,9 +2,9 @@ var express = require('express')
 var app = express()
 
 app.get('/', function (req,res){
-	res.send ('Hola mundo')
+	res.send (
+		"<html><head></head><body>Hola "+process.env.NOMBRE+"<script>document.body.style.backgroundColor='"+process.env.COLOR+"';</script></body></html>")
 })
-
-app.listen(7000, function(){
-	console.log('app listening on 7000')
+app.listen(process.env.PUERTO, function(){
+	console.log('app listening on '+process.env.PUERTO )
 })
